@@ -30,6 +30,7 @@ namespace MoneyMakingEffect
         {
             InitializeComponent();
 
+            SuppressScriptErrors(web, true);
             web.Navigate("http://stockapp.finance.qq.com/mstats/");
 
             web.Navigated += (o, ex) => {
@@ -44,11 +45,31 @@ namespace MoneyMakingEffect
 
             timer.Interval = new TimeSpan(0, 0, 6);
             timer.Tick += (o, ex) => {
+                SuppressScriptErrors(web, true);
                 web.Navigate($"http://stockapp.finance.qq.com/mstats/?_={DateTime.Now.Ticks}");
             };
             timer.Start();
         }
+        /// <summary>
+        /// 在加载页面之前调用此方法设置hide为true就能抑制错误的弹出了。
+        /// </summary>
+        /// <param name="webBrowser"></param>
+        /// <param name="hide"></param>
+        static void SuppressScriptErrors(WebBrowser webBrowser, bool hide)
+        {
+            webBrowser.Navigating += (s, e) =>
+            {
+                var fiComWebBrowser = typeof(WebBrowser).GetField("_axIWebBrowser2", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+                if (fiComWebBrowser == null)
+                    return;
 
+                object objComWebBrowser = fiComWebBrowser.GetValue(webBrowser);
+                if (objComWebBrowser == null)
+                    return;
+
+                objComWebBrowser.GetType().InvokeMember("Silent", System.Reflection.BindingFlags.SetProperty, null, objComWebBrowser, new object[] { hide });
+            };
+        }
         private void compute()
         {
             var doc = web.Document as mshtml.HTMLDocument;
