@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoneyMakingEffect"
         mc:Ignorable="d"
-        Title="赚钱效应" Height="120" Width="500">
+        Title="赚钱效应" Height="120" Width="500" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Content="上涨：" HorizontalAlignment="Left" Margin="26,27,0,0" VerticalAlignment="Top" Name="rise" FontSize="18"/>
         <Label Content="下跌：" HorizontalAlignment="Left" Margin="171,27,0,0" VerticalAlignment="Top" Name="fall" FontSize="18"/>
