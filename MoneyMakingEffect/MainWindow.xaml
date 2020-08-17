@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoneyMakingEffect"
         mc:Ignorable="d"
-        Title="赚钱效应" Height="123.332" Width="557.334">
+        Title="赚钱效应" Height="120" Width="500">
     <Grid>
-        <Label Content="上涨：" HorizontalAlignment="Left" Margin="34,27,0,0" VerticalAlignment="Top" Name="rise" FontSize="18"/>
-        <Label Content="下跌：" HorizontalAlignment="Left" Margin="179,27,0,0" VerticalAlignment="Top" Name="fall" FontSize="18"/>
-        <Label Content="赚钱效应：" HorizontalAlignment="Left" Margin="330,27,0,0" VerticalAlignment="Top" Name="mme" FontSize="18"/>
+        <Label Content="上涨：" HorizontalAlignment="Left" Margin="26,27,0,0" VerticalAlignment="Top" Name="rise" FontSize="18"/>
+        <Label Content="下跌：" HorizontalAlignment="Left" Margin="171,27,0,0" VerticalAlignment="Top" Name="fall" FontSize="18"/>
+        <Label Content="赚钱效应：" HorizontalAlignment="Left" Margin="322,27,0,0" VerticalAlignment="Top" Name="mme" FontSize="18"/>
         <WebBrowser x:Name="web" Margin="10,65,441,10" Visibility="Hidden">
             <WebBrowser.CacheMode>
                 <BitmapCache/>
